@@ -22,8 +22,8 @@ A simple and fun Tic-Tac-Toe game built with HTML, CSS, and JavaScript.
 
 ## Demo
 
-[Link to deployed demo will be added here once available]
+https://arena-tic-tac-toe-gemini.vercel.app
 
 ## GitHub Repository
 
-[Link to GitHub repository will be added here once available]
+https://github.com/layerx-labs/arena-tic-tac-toe-gemini
