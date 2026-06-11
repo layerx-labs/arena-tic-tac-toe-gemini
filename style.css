@@ -1,61 +1,120 @@
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --board-bg: #fff;
+    --cell-border: #ddd;
+    --x-color: #ff4757;
+    --o-color: #2ed573;
+    --btn-bg: #333;
+    --btn-text: #fff;
+    --btn-hover: #555;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    gap: 20px;
+    padding: 20px;
+    background: var(--board-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 h1 {
-    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-#game-board {
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.status-panel h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    min-height: 36px; /* Prevent layout shift */
+}
+
+.board {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin-bottom: 20px;
-    background-color: #ccc;
-    border: 5px solid #ccc;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    background-color: var(--cell-border);
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .cell {
-    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    background-color: var(--board-bg);
+    border-radius: 4px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 2em;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: bold;
     cursor: pointer;
-    user-select: none; /* Prevent text selection */
+    transition: background-color 0.2s ease;
 }
 
 .cell:hover {
-    background-color: #eee;
+    background-color: #f9f9f9;
 }
 
-#game-info {
-    text-align: center;
+.cell.x {
+    color: var(--x-color);
 }
 
-#current-player {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #555;
+.cell.o {
+    color: var(--o-color);
 }
 
-#reset-button {
+.cell.winning-cell {
+    background-color: #fff3cd;
+}
+
+button {
     padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
+    font-size: 1rem;
+    font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
-#reset-button:hover {
-    background-color: #45a049;
+button:hover {
+    background-color: var(--btn-hover);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 3rem;
+    }
 }
